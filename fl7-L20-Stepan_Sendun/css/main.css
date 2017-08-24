@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    height: 100%;
+    user-select: none;
+}
+
+
+header,
+header .wrap,
+.container {
+    display: flex;
+}
+
+header {
+    margin-bottom: 50px;
+    justify-content: space-between;
+    cursor: default;
+}
+
+header h4 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #B3B3B3;
+}
+
+header img {
+    margin: 5px 5px 5px 0;
+    height: 2em;
+}
+
+header .wrap {
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .steps,
+header .clock{
+    color: #808080;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+header .colon {
+    display: inline-block;
+    margin: 0 -7px;
+    transform: translate(0, -2px);
+    
+}
+
+.container {
+    margin: 0 auto;
+    padding-top: 25px;
+    width: 400px;
+    flex-direction: column;
+}
+
+
+main {
+    position: relative;
+    height: 395px;
+}
+
+main div {
+    position: absolute;
+    display: inline-block;
+    background-color: #4A90E2;
+    margin: 1px;
+    height: 95px;
+    width: 95px;
+    color: white;
+    font-size: 4em;
+    line-height: 100px;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 10%;
+    transition: 0.4s;
+    cursor: pointer;
+    
+}
+
+main .transparent {
+    opacity: 0.2;
+}
+
+
+footer {
+    margin-top: 50px;
+}
+
+footer button {
+    margin-top: 5px;
+    display: block;
+    border-radius: 5%;
+    height: 50px;
+    width: 100%;
+    border: 1px solid #50E3C2;
+    background-color: transparent;
+    outline: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    color: #50E3C2;
+    transition: 0.2s;
+    opacity: .2;
+}
+
+.is-hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+footer button.is-hover:hover {
+    color: #4A4A4A;
+    background-color: #50E3C2;
+}
+
+main .empty {
+    cursor: default;
+    opacity: .0;
+}
+
+main .congratulation {
+    position: absolute;
+    width: 395px;
+    height: 100%;
+    background-color: rgba(179, 179, 196, .1);
+    color: #4A90E2;
+    cursor: default;
+    z-index: 255;
+    opacity: 1;
+    border-radius: 0%;
+}
+
+main .congratulation p {
+    font-size: 0.5em;
+    padding: 25px;
+}

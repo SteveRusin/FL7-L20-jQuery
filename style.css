@@ -1,0 +1,93 @@
+@keyframes color {
+    0% {color: rgba(153, 0, 0, .8);}
+    10% {color: rgba(153, 204, 0, .8);}
+    20% {color: rgba(153, 207, 255, .8);}
+    30% {color: rgba(0, 100, 255, .8);}
+    40% {color: rgba(0, 157, 54, .8);}
+    50% {color: rgba(0, 212, 209, .8);}
+    60% {color: rgba(0, 255, 0, .8);}
+    70% {color: rgba(255, 255, 0, .8);}
+    80% {color: rgba(255, 143, 0, .8);}
+    90% {color: rgba(96, 232, 172, .8);}
+    10% {color: rgba(153, 0, 0, .8);}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {
+    color: #00B390;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-title {
+    flex-direction: column;
+    margin-bottom: 10%;
+    margin-top: -10%;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h1,h2 {
+    animation: color 40s linear infinite;
+    text-shadow: 0 0 5px #000;
+}
+
+h3 {
+    animation: color 40s linear infinite;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #0000ff;
+    font-size: 25px;
+    margin: 0 25px;
+    transition: 0.4s;
+    text-shadow: 0 0 2px black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    transform: scale(1.5);
+    color: red;
+    text-shadow: 0 0 15px red;
+}
+
+a:after {
+    display: block;
+    content: '';
+    height: 1px;
+    width: 0%;
+    background: red;
+    transition: 0.4s;
+}
+
+a:hover:after {
+    width: 100%;
+}
