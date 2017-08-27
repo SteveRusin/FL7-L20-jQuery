@@ -100,10 +100,11 @@ $(document).ready(function () {
         $('main').html('');
         boxes.forEach(function (el) {
             if (el.number === 16) {
-                $('main').append(`<div class='empty' style='top:${el.top}px; left:${el.left}px'>${el.number}</div>`)
+                $('main').append(`<div class='box empty' style='top:${el.top}px; left:${el.left}px'>${el.number}</div>`);
             } else {
-                $('main').append(`<div class='box${el.number}' style='top:${el.top}px; left:${el.left}px'>${el.number}</div>`)
+                $('main').append(`<div class='box' style='top:${el.top}px; left:${el.left}px'>${el.number}</div>`);
             }
+            $('main').append(`<div class='shade' style='top:${el.top}px; left:${el.left}px'></div>`);
 
         })
     }
@@ -114,7 +115,7 @@ $(document).ready(function () {
         let boxesAfterClick;
         let newTop;
         let newLeft;
-        tempArr = $('main div').toArray();
+        tempArr = $('main .box').toArray();
         return boxesAfterClick = $.map(tempArr, function (el) {
             newTop = parseFloat($(el).attr('style').split(';')[0].substr(4));
             newLeft = parseFloat($(el).attr('style').split(';')[1].substr(6));
@@ -155,24 +156,30 @@ $(document).ready(function () {
 
         if (((Math.abs(top - emptyTop) === 0) && (Math.abs(left - emptyleft) === 100)) ||
             ((Math.abs(top - emptyTop) === 100) && (Math.abs(left - emptyleft) === 0))) {
-            $target.css({
-                    'transition': '0s',
-                    'border': '2px solid #2F6CB3'
-                })
-                .animate({
-                    top: emptyTop + 'px',
-                    left: emptyleft + 'px'
-                }, 200, () => {
-                    $target.css('border', 'none');
-                });
+                        $target.css({
+                                'transition': '0s',
+                                'border': '2px solid #2F6CB3',
+                                'box-shadow': '0px 0px 20px #2F6CB3'
+                            })
+                            .animate({
+                                top: emptyTop + 'px',
+                                left: emptyleft + 'px'
+                            }, 200, () => {
+                                $target.css({
+                                    'transition': '',
+                                    'border': '',
+                                    'box-shadow': ''
+                                });
+                            });
+            
+                        $empty.css({
+                            'top': top + 'px',
+                            'left': left + 'px'
+                        });
 
-            $empty.css({
-                'top': top + 'px',
-                'left': left + 'px'
-            });
 
             $('.steps').html(clicks++);
-            checkWin(newBoxesArr);
+            setTimeout(()=>{checkWin(newBoxesArr)}, 400);
         }
 
     }
@@ -188,8 +195,9 @@ $(document).ready(function () {
             $('.congratulation').remove();
             $('main div').removeClass('transparent');
             shufflerArr = shuffle(arrForSorting);
-            tempArr = $('main div').toArray();
+            tempArr = $('main .box').toArray();
             tempArr.forEach(function (tempArrEl, i) {
+
                 $(tempArrEl).attr('style', `top:${shufflerArr[i].top}px; left:${shufflerArr[i].left}px;`);
             });
 

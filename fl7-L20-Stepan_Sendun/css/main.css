@@ -9,7 +9,6 @@ body {
     user-select: none;
 }
 
-
 header,
 header .wrap,
 .container {
@@ -65,24 +64,31 @@ main {
     position: relative;
     height: 395px;
 }
-
+main .shade,
 main div {
     position: absolute;
-    display: inline-block;
-    background-color: #4A90E2;
     margin: 1px;
     height: 95px;
     width: 95px;
+    border-radius: 10%;
+}
+
+main div {   
+    background-color: #4A90E2;   
     color: white;
     font-size: 4em;
     line-height: 100px;
     font-weight: bold;
     vertical-align: middle;
-    text-align: center;
-    border-radius: 10%;
+    text-align: center;   
     transition: 0.4s;
     cursor: pointer;
     
+}
+
+main .shade {
+    background-color: #EDEDED;
+    z-index: -1;
 }
 
 main .transparent {
