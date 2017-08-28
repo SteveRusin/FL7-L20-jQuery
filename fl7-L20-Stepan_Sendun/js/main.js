@@ -156,30 +156,32 @@ $(document).ready(function () {
 
         if (((Math.abs(top - emptyTop) === 0) && (Math.abs(left - emptyleft) === 100)) ||
             ((Math.abs(top - emptyTop) === 100) && (Math.abs(left - emptyleft) === 0))) {
-                        $target.css({
-                                'transition': '0s',
-                                'border': '2px solid #2F6CB3',
-                                'box-shadow': '0px 0px 20px #2F6CB3'
-                            })
-                            .animate({
-                                top: emptyTop + 'px',
-                                left: emptyleft + 'px'
-                            }, 200, () => {
-                                $target.css({
-                                    'transition': '',
-                                    'border': '',
-                                    'box-shadow': ''
-                                });
-                            });
-            
-                        $empty.css({
-                            'top': top + 'px',
-                            'left': left + 'px'
-                        });
+            $target.css({
+                    'transition': '0s',
+                    'border': '2px solid #2F6CB3',
+                    'box-shadow': '0px 0px 20px #2F6CB3'
+                })
+                .animate({
+                    top: emptyTop + 'px',
+                    left: emptyleft + 'px'
+                }, 200, () => {
+                    $target.css({
+                        'transition': '',
+                        'border': '',
+                        'box-shadow': ''
+                    });
+                });
+
+            $empty.css({
+                'top': top + 'px',
+                'left': left + 'px'
+            });
 
 
             $('.steps').html(clicks++);
-            setTimeout(()=>{checkWin(newBoxesArr)}, 400);
+            setTimeout(() => {
+                checkWin(newBoxesArr)
+            }, 400);
         }
 
     }
@@ -237,8 +239,18 @@ $(document).ready(function () {
             minutes++;
             seconds = 0;
         }
-        seconds < 10 ? $('.seconds').html(`0${seconds}`) : $('.seconds').html(seconds);
-        minutes < 10 ? $('.minutes').html(`0${minutes}`) : $('.minutes').html(minutes);
+        if (seconds < 10) {
+            $('.seconds').html(`0${seconds}`);
+        } else {
+            $('.seconds').html(seconds);
+        }
+
+        if (minutes < 10) {
+            $('.minutes').html(`0${minutes}`);
+        } else {
+            $('.minutes').html(minutes);
+        }
+
         seconds++;
     }
 
